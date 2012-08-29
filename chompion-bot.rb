@@ -12,6 +12,7 @@ require 'uri'
 #end
 class Chompion
   include Cinch::Plugin
+  prefix /.*/
   match /https?:\/\/[\S]+/, method: :extract
   
   def post(url)
