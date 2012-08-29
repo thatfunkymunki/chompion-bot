@@ -12,30 +12,23 @@ require 'uri'
 #end
 class Chompion
   include Cinch::Plugin
+  listen_to :channel
   
-  match /https?:\/\/[\S]+/
-  
-  def execute(m)
-    #POST to the website
-    url = URI.extract(m.message)
-    debug "URL posted #{url}"
+  def post(url)
+    #post to the server
   end
-end
-
-class Hello
-  include Cinch::Plugin
-  match "hello"
   
-  def execute(m)
-    debug "#{m.user.nick} said hello"
+  def listen(m)
+    urls = URI.extract(m.message, "http")
+    m.reply "url: #{urls}"
   end
+  
 end
-
 bot = Cinch::Bot.new do
   configure do |c|
     c.server = "irc.freenode.org"
     c.channels = ["##subreddit"]
-    c.plugins.plugins=[Hello]
+    c.plugins.plugins=[Chompion]
     c.nick = "chompion"
   end
 end
