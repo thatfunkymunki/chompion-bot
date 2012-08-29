@@ -12,13 +12,13 @@ require 'uri'
 #end
 class Chompion
   include Cinch::Plugin
-  listen_to :channel
+  match /https?:\/\/[\S]+/, method: :extract
   
   def post(url)
     #post to the server
   end
   
-  def listen(m)
+  def extract(m)
     urls = URI.extract(m.message, "http")
     unless urls.empty?
       m.reply "url: #{urls}"
