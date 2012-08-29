@@ -22,11 +22,19 @@ class Chompion
   end
 end
 
+class Hello
+  match "hello"
+  
+  def execute(m)
+    debug "#{m.user.nick} said hello"
+  end
+end
+
 bot = Cinch::Bot.new do
   configure do |c|
     c.server = "irc.freenode.org"
     c.channels = ["##subreddit"]
-    c.plugins.plugins=[Chompion]
+    c.plugins.plugins=[Hello]
     c.nick = "chompion"
   end
 end
