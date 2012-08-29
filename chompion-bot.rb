@@ -20,7 +20,7 @@ class Chompion
   
   def listen(m)
     urls = URI.extract(m.message, "http")
-    unless urls? m.reply "url: #{urls}"
+    unless urls? do m.reply "url: #{urls}" end
   end
   
 end
