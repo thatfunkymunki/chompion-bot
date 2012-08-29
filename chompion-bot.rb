@@ -24,7 +24,7 @@ class Chompion
   def listen(m)
     urls = URI.extract(m.message, "http")
     unless urls.empty?
-      for url in urls
+      urls.each do |url|
         post(url, m.user.nick)
       end
     end
