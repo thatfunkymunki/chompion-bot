@@ -13,7 +13,7 @@ require 'uri'
 class Chompion
   include Cinch::Plugin
   
-  match "chompion"
+  match /https?:\/\/[\S]+/
   
   def execute(m)
     #POST to the website
