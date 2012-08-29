@@ -14,6 +14,8 @@ class Chompion
   include Cinch::Plugin
   
   listen_to :channel
+  match /https?:\/\/[\S]+/, method: :listen
+  
   def post(url)
     #post to the server
   end
