@@ -23,6 +23,7 @@ class Chompion
 end
 
 class Hello
+  include Cinch::Plugin
   match "hello"
   
   def execute(m)
