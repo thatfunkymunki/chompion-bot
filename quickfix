@@ -1,0 +1,4 @@
+'''Added try: for error catching'''
+for x in range(1,10):
+  try:
+    print("8==D")
